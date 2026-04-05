@@ -4,5 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-games',
   imports: [],
   templateUrl: './games.html',
+  styleUrl: './games.css',
 })
 export class Games {}
