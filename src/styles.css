@@ -1,12 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
 
 @import 'tailwindcss';
 
 @theme {
     --color-primary: #8FF5FF;
+    --color-secundary: #D674FF;
     --color-background: #0E0E13;
     --color-foreground: #f8f5fc;
     --color-header: #0b0b0f;
+
+    --font-michroma: "Michroma", sans-serif;
 }
 
 body{

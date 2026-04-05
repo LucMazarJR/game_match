@@ -1,9 +1,12 @@
-<header class="flex justify-between p-8 items-center font-medium bg-header">
-  <a routerLink="/" class="text-primary text-2xl">GAME MATCH</a>
-  <nav class="flex gap-8 text-gray-400 text-lg">
-    <a routerLink="/" class="transit">Home</a>
-    <a routerLink="/match">Match</a>
-    <a routerLink="/games">Games</a>
+<header class="flex justify-between p-8 items-center font-medium bg-header font-michroma">
+  <a routerLink="/" class="text-primary text-2xl flex items-center gap-2 hover:scale-110 duration-100 transition-transform ease-in-out">
+    <svg lucideGamepad2 class="text-secundary animate-pulse [animation-duration:3s]" size="32"></svg>
+    GAME MATCH
+  </a>
+  <nav class="flex gap-8 text-gray-400 text-lg items-center">
+    <a routerLink="/" class="transition-all hover:bg-background hover:scale-110 duration-100 ease-in-out p-2 rounded-lg">HOME</a>
+    <a routerLink="/match" class="transition-all hover:bg-background hover:scale-110 duration-100 ease-in-out p-2 rounded-lg">MATCH</a>
+    <a routerLink="/games" class="transition-all hover:bg-background hover:scale-110 duration-100 ease-in-out p-2 rounded-lg">GAMES</a>
   </nav>
 </header>
 
