@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LucideAArrowDown, LucideMoveLeft, LucideMoveRight, LucideArrowRight } from "@lucide/angular";
+import { LucideArrowRight } from "@lucide/angular";
 import { RouterLink } from "@angular/router";
 
 @Component({
