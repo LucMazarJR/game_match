@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 export type GameGenre = {
-    gameId: number;
+    genreId: number;
     name: string;
     lucideIcon: string;
 };
@@ -14,25 +14,25 @@ export class GamesGenres {
 
     constructor() {
         this.genres = [
-            { gameId: 4, name: 'Ação', lucideIcon: 'lucideSwords' },
-            { gameId: 51, name: 'Indie', lucideIcon: 'lucideSprout' },
-            { gameId: 3, name: 'Aventura', lucideIcon: 'lucideBackpack' },
-            { gameId: 5, name: 'RPG', lucideIcon: 'lucideMap' },
-            { gameId: 10, name: 'Estratégia', lucideIcon: 'lucideLandPlot' },
-            { gameId: 2, name: 'Shooter', lucideIcon: 'lucideTarget' },
-            { gameId: 40, name: 'Casual', lucideIcon: 'lucideHeadphones' },
-            { gameId: 14, name: 'Simulação', lucideIcon: 'lucideTrees' },
-            { gameId: 7, name: 'Puzzle', lucideIcon: 'lucidePuzzle' },
-            { gameId: 11, name: 'Arcade', lucideIcon: 'lucideBoxes' },
-            { gameId: 83, name: 'Plataforma', lucideIcon: 'lucideGamepad2' },
-            { gameId: 59, name: 'MMO', lucideIcon: 'lucideGlobe' },
-            { gameId: 1, name: 'Corrida', lucideIcon: 'lucideTrophy' },
-            { gameId: 15, name: 'Esportes', lucideIcon: 'lucideVolleyball' },
-            { gameId: 6, name: 'Luta', lucideIcon: 'lucideHandFist' },
-            { gameId: 19, name: 'Familiar', lucideIcon: 'lucideHouse' },
-            { gameId: 28, name: 'Tabuleiro', lucideIcon: 'lucideChessQueen' },
-            { gameId: 17, name: 'Cartas', lucideIcon: 'lucideSpade' },
-            { gameId: 34, name: 'Educacional', lucideIcon: 'lucideGraduationCap' },
+            { genreId: 4, name: 'Ação', lucideIcon: 'lucideSwords' },
+            { genreId: 51, name: 'Indie', lucideIcon: 'lucideSprout' },
+            { genreId: 3, name: 'Aventura', lucideIcon: 'lucideBackpack' },
+            { genreId: 5, name: 'RPG', lucideIcon: 'lucideMap' },
+            { genreId: 10, name: 'Estratégia', lucideIcon: 'lucideLandPlot' },
+            { genreId: 2, name: 'Shooter', lucideIcon: 'lucideTarget' },
+            { genreId: 40, name: 'Casual', lucideIcon: 'lucideHeadphones' },
+            { genreId: 14, name: 'Simulação', lucideIcon: 'lucideTrees' },
+            { genreId: 7, name: 'Puzzle', lucideIcon: 'lucidePuzzle' },
+            { genreId: 11, name: 'Arcade', lucideIcon: 'lucideBoxes' },
+            { genreId: 83, name: 'Plataforma', lucideIcon: 'lucideGamepad2' },
+            { genreId: 59, name: 'MMO', lucideIcon: 'lucideGlobe' },
+            { genreId: 1, name: 'Corrida', lucideIcon: 'lucideTrophy' },
+            { genreId: 15, name: 'Esportes', lucideIcon: 'lucideVolleyball' },
+            { genreId: 6, name: 'Luta', lucideIcon: 'lucideHandFist' },
+            { genreId: 19, name: 'Familiar', lucideIcon: 'lucideHouse' },
+            { genreId: 28, name: 'Tabuleiro', lucideIcon: 'lucideChessQueen' },
+            { genreId: 17, name: 'Cartas', lucideIcon: 'lucideSpade' },
+            { genreId: 34, name: 'Educacional', lucideIcon: 'lucideGraduationCap' },
         ];
     }
 
