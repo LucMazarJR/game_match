@@ -12,6 +12,7 @@ export type formApi = {
 })
 export class Match {
   protected readonly formApiData = signal<formApi>({ selectedGenreIds: [] });
+  protected readonly formPage = signal<number>(0)
 
   protected onSelectedGenresChange(ids: number[]) {
     this.formApiData.update(current => ({
