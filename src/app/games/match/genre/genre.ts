@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, output, signal } from '@angular/core';
 import { LucideBackpack, LucideBoxes, LucideChessQueen, LucideDynamicIcon, LucideGamepad2, LucideGlobe, LucideGraduationCap, LucideHandFist, LucideHeadphones, LucideHouse, LucideLandPlot, LucideMap, LucidePuzzle, LucideSpade, LucideSprout, LucideSwords, LucideTarget, LucideTrees, LucideTrophy, LucideVolleyball } from '@lucide/angular';
 import type { LucideIconInput } from '@lucide/angular';
 import { GamesGenres } from './game-genres-mock';
@@ -15,6 +15,7 @@ export class Genre {
   private readonly gamesGenresService = inject(GamesGenres);
   readonly genres = this.gamesGenresService.getGamesGenres();
   protected selectedGenresIds = signal<number[]>([]);
+  readonly selectedGenresChange = output<number[]>();
 
   private readonly iconMap: Record<string, LucideIconInput> = {
     lucideSwords: LucideSwords,
@@ -43,13 +44,10 @@ export class Genre {
   }
 
   protected toggleGenre(genreId: number) {
-    if (this.selectedGenresIds().includes(genreId)){
-      this.selectedGenresIds.set(this.selectedGenresIds().filter(
-        id => id !== genreId
-      ))
-    }
-    else{
-      this.selectedGenresIds.set([...this.selectedGenresIds(), genreId])
-    }
+    this.selectedGenresIds.update(ids =>
+      ids.includes(genreId) ? ids.filter(id => id !== genreId) : [...ids, genreId]
+    );
+
+    this.selectedGenresChange.emit(this.selectedGenresIds());
   }
 }

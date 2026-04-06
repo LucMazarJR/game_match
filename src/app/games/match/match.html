@@ -4,6 +4,6 @@
         <h1 class="font-bold text-5xl">O que você busca hoje?</h1>
     </div>
     <div class="w-[70%]">
-        <app-genre></app-genre>
+        <app-genre (selectedGenresChange)="onSelectedGenresChange($event)"></app-genre>
     </div>
 </div>
