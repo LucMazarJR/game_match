@@ -1,0 +1,25 @@
+.genre-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #8ff5ff #191923;
+  scrollbar-gutter: stable;
+}
+
+.genre-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.genre-scroll::-webkit-scrollbar-track {
+  background: #191923;
+  border-radius: 999px;
+}
+
+.genre-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #8ff5ff 0%, #d674ff 100%);
+  border-radius: 999px;
+  border: 2px solid #191923;
+  min-height: 40px;
+}
+
+.genre-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #aef9ff 0%, #e39fff 100%);
+}
