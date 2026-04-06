@@ -43,9 +43,6 @@ export class Genre {
   }
 
   protected toggleGenre(genreId: number) {
-    console.log(genreId)
-    console.log(this.selectedGenresIds())
-
     if (this.selectedGenresIds().includes(genreId)){
       this.selectedGenresIds.set(this.selectedGenresIds().filter(
         id => id !== genreId
