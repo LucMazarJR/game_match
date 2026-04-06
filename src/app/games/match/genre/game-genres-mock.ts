@@ -14,25 +14,25 @@ export class GamesGenres {
 
     constructor() {
         this.genres = [
-            { gameId: 4, name: 'Action', lucideIcon: 'lucideSwords' },
+            { gameId: 4, name: 'Ação', lucideIcon: 'lucideSwords' },
             { gameId: 51, name: 'Indie', lucideIcon: 'lucideSprout' },
-            { gameId: 3, name: 'Adventure', lucideIcon: 'lucideBackpack' },
+            { gameId: 3, name: 'Aventura', lucideIcon: 'lucideBackpack' },
             { gameId: 5, name: 'RPG', lucideIcon: 'lucideMap' },
-            { gameId: 10, name: 'Strategy', lucideIcon: 'lucideLandPlot' },
+            { gameId: 10, name: 'Estratégia', lucideIcon: 'lucideLandPlot' },
             { gameId: 2, name: 'Shooter', lucideIcon: 'lucideTarget' },
             { gameId: 40, name: 'Casual', lucideIcon: 'lucideHeadphones' },
-            { gameId: 14, name: 'Simulation', lucideIcon: 'lucideTrees' },
+            { gameId: 14, name: 'Simulação', lucideIcon: 'lucideTrees' },
             { gameId: 7, name: 'Puzzle', lucideIcon: 'lucidePuzzle' },
             { gameId: 11, name: 'Arcade', lucideIcon: 'lucideBoxes' },
-            { gameId: 83, name: 'Platformer', lucideIcon: 'lucideGamepad2' },
-            { gameId: 59, name: 'Massively Multiplayer', lucideIcon: 'lucideGlobe' },
-            { gameId: 1, name: 'Racing', lucideIcon: 'lucideTrophy' },
-            { gameId: 15, name: 'Sports', lucideIcon: 'lucideVolleyball' },
-            { gameId: 6, name: 'Fighting', lucideIcon: 'lucideHandFist' },
-            { gameId: 19, name: 'Family', lucideIcon: 'lucideHouse' },
-            { gameId: 28, name: 'Board Games', lucideIcon: 'lucideChessQueen' },
-            { gameId: 17, name: 'Card', lucideIcon: 'lucideSpade' },
-            { gameId: 34, name: 'Educational', lucideIcon: 'lucideGraduationCap' },
+            { gameId: 83, name: 'Plataforma', lucideIcon: 'lucideGamepad2' },
+            { gameId: 59, name: 'MMO', lucideIcon: 'lucideGlobe' },
+            { gameId: 1, name: 'Corrida', lucideIcon: 'lucideTrophy' },
+            { gameId: 15, name: 'Esportes', lucideIcon: 'lucideVolleyball' },
+            { gameId: 6, name: 'Luta', lucideIcon: 'lucideHandFist' },
+            { gameId: 19, name: 'Familiar', lucideIcon: 'lucideHouse' },
+            { gameId: 28, name: 'Tabuleiro', lucideIcon: 'lucideChessQueen' },
+            { gameId: 17, name: 'Cartas', lucideIcon: 'lucideSpade' },
+            { gameId: 34, name: 'Educacional', lucideIcon: 'lucideGraduationCap' },
         ];
     }
 
