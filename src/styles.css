@@ -6,12 +6,20 @@
 @theme {
     --color-primary: #8FF5FF;
     --color-secundary: #D674FF;
+    --color-tertiary: #B5FFC2;
     --color-background: #0E0E13;
     --color-foreground: #f8f5fc;
     --color-header: #0b0b0f;
 
     --font-michroma: "Michroma", sans-serif;
     --font-inter: "Inter", sans-serif;
+
+    --animate-bounce-x: bounce-x 1.5s ease-in infinite;
+
+    @keyframes bounce-x {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(4px); }
+    }
 }
 
 body{
