@@ -7,5 +7,4 @@ import { LucideGamepad2 } from '@lucide/angular';
   imports: [RouterOutlet, RouterLinkWithHref, LucideGamepad2],
   templateUrl: './app.html',
 })
-
 export class App {}

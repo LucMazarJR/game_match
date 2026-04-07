@@ -9,7 +9,7 @@ import { FormsApi } from './forms-api';
   templateUrl: './form.html',
 })
 export class Form {
-  private formsApi = inject(FormsApi)
+  private formsApi = inject(FormsApi);
 
   public loading = signal(true);
   public errorMessage = signal<string | null>(null);
@@ -20,9 +20,8 @@ export class Form {
         this.errorMessage.set('Nao foi possivel carregar as plataformas.');
         return of([]);
       }),
-      finalize(() => this.loading.set(false))
+      finalize(() => this.loading.set(false)),
     ),
-    { initialValue: [] }
+    { initialValue: [] },
   );
-
 }

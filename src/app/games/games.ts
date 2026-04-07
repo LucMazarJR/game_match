@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LucideArrowRight } from "@lucide/angular";
-import { RouterLink } from "@angular/router";
+import { LucideArrowRight } from '@lucide/angular';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-games',

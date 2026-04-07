@@ -1,8 +1,28 @@
 import { ChangeDetectionStrategy, Component, inject, input, output } from '@angular/core';
-import { LucideBackpack, LucideBoxes, LucideChessQueen, LucideDynamicIcon, LucideGamepad2, LucideGlobe, LucideGraduationCap, LucideHandFist, LucideHeadphones, LucideHouse, LucideLandPlot, LucideMap, LucidePuzzle, LucideSpade, LucideSprout, LucideSwords, LucideTarget, LucideTrees, LucideTrophy, LucideVolleyball } from '@lucide/angular';
+import {
+  LucideBackpack,
+  LucideBoxes,
+  LucideChessQueen,
+  LucideDynamicIcon,
+  LucideGamepad2,
+  LucideGlobe,
+  LucideGraduationCap,
+  LucideHandFist,
+  LucideHeadphones,
+  LucideHouse,
+  LucideLandPlot,
+  LucideMap,
+  LucidePuzzle,
+  LucideSpade,
+  LucideSprout,
+  LucideSwords,
+  LucideTarget,
+  LucideTrees,
+  LucideTrophy,
+  LucideVolleyball,
+} from '@lucide/angular';
 import type { LucideIconInput } from '@lucide/angular';
 import { GamesGenres } from './game-genres-mock';
-
 
 @Component({
   selector: 'app-genre',
@@ -46,7 +66,7 @@ export class Genre {
   protected toggleGenre(genreId: number) {
     const currentIds = this.selectedGenreIds();
     const nextIds = currentIds.includes(genreId)
-      ? currentIds.filter(id => id !== genreId)
+      ? currentIds.filter((id) => id !== genreId)
       : [...currentIds, genreId];
 
     this.selectedGenresChange.emit(nextIds);
