@@ -8,7 +8,16 @@
       <p class="text-muted">Nenhuma plataforma encontrada.</p>
     } @else {
       @for (plataform of plataforms(); track plataform.id) {
-        <button class="p-2 px-4 bg-muted/40 text-muted rounded-lg" type="button">
+        <button
+          [class]="
+            'p-2 px-4 rounded-lg ' +
+            (selectedPlataformIds().includes(plataform.id)
+              ? 'bg-primary/70 text-white'
+              : 'bg-muted/40 text-muted')
+          "
+          type="button"
+          (click)="togglePlataform(plataform.id)"
+        >
           {{ plataform.name }}
         </button>
       }

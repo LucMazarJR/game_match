@@ -10,7 +10,11 @@
         (selectedGenresChange)="onSelectedGenresChange($event)"
       ></app-genre>
     } @else {
-      <app-form></app-form>
+      <app-form
+        [selectedPlataformIds]="formApiData().selectedPlataformIds"
+        (selectedPlataformsChange)="onSelectedPlataformsChange($event)"
+      >
+      </app-form>
     }
     <div class="flex justify-between">
       @if (formPage() == 1) {
