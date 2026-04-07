@@ -10,9 +10,9 @@
       @for (plataform of plataforms(); track plataform.id) {
         <button
           [class]="
-            'p-2 px-4 rounded-lg ' +
+            'p-2 px-4 rounded-lg cursor-pointer transition-all hover:scale-105 hover:bg-muted/70 hover:text-white ' +
             (selectedPlataformIds().includes(plataform.id)
-              ? 'bg-primary/70 text-white'
+              ? 'bg-primary/70 hover:bg-primary/80 text-white'
               : 'bg-muted/40 text-muted')
           "
           type="button"
