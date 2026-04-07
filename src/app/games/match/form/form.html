@@ -1,0 +1,17 @@
+<form action="">
+    <div class="flex flex-wrap gap-2 w-full justify-center">
+        @if (loading()) {
+        <p class="text-muted">Carregando plataformas...</p>
+        } @else if (errorMessage()) {
+        <p class="text-red-500">{{ errorMessage() }}</p>
+        } @else if (plataforms().length === 0) {
+        <p class="text-muted">Nenhuma plataforma encontrada.</p>
+        } @else {
+        @for (plataform of plataforms(); track plataform.id) {
+        <button class="p-2 px-4 bg-muted/40 text-muted rounded-lg" type="button">
+            {{ plataform.name }}
+        </button>}
+        }
+
+    </div>
+</form>
