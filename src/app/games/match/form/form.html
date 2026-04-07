@@ -7,7 +7,7 @@
     } @else if (plataforms().length === 0) {
       <p class="text-muted">Nenhuma plataforma encontrada.</p>
     } @else {
-      @for (plataform of plataforms(); track plataform.id) {
+      @for (plataform of plataformsExibitions(); track plataform.id) {
         <button
           [class]="
             'p-2 px-4 rounded-lg cursor-pointer transition-all hover:scale-105 hover:bg-muted/70 hover:text-white ' +
@@ -22,5 +22,12 @@
         </button>
       }
     }
+    <button
+      type="button"
+      [class]="'p-2 px-4 rounded-lg cursor-pointer transition-all hover:scale-105 hover:bg-muted/70 text-header ' + (expandPlataforms() ? 'bg-secundary' : 'bg-tertiary')"
+      (click)="tooglePlataformExpanded()"
+    >
+      {{ expandPlataforms() ? '< ver Menos' : 'Ver Mais >' }}
+    </button>
   </div>
 </form>
