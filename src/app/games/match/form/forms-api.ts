@@ -7,12 +7,17 @@ export type PlataformsResponse = {
   results: { id: number; name: string }[];
 };
 
+export type StoresResponse = {
+  results: { id: number; name: string }[];
+};
+
 @Injectable({
   providedIn: 'root',
 })
 export class FormsApi {
   private http = inject(HttpClient);
   private platformsCache$?: Observable<{ id: number; name: string }[]>;
+  private storesCache$?: Observable<{ id: number; name: string }[]>;
 
   public getGamesPlataforms(): Observable<{ id: number; name: string }[]> {
     if (!this.platformsCache$) {
@@ -29,5 +34,22 @@ export class FormsApi {
 
   public clearPlatformsCache(): void {
     this.platformsCache$ = undefined;
+  }
+
+  public getGamesStores(): Observable<{ id: number; name: string }[]> {
+    if (!this.storesCache$) {
+      this.storesCache$ = this.http
+        .get<StoresResponse>(`${environment.apiUrl}/stores?${environment.key}`)
+        .pipe(
+          map((result) => result.results.map(({ id, name }) => ({ id, name }))),
+          shareReplay({ bufferSize: 1, refCount: true }),
+        );
+    }
+
+    return this.storesCache$;
+  }
+
+  public clearStoresCache(): void {
+    this.storesCache$ = undefined;
   }
 }

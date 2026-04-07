@@ -1,33 +1,65 @@
 <form action="">
-  <div class="flex flex-wrap gap-2 w-full justify-center">
-    @if (loading()) {
-      <p class="text-muted">Carregando plataformas...</p>
-    } @else if (errorMessage()) {
-      <p class="text-red-500">{{ errorMessage() }}</p>
-    } @else if (plataforms().length === 0) {
-      <p class="text-muted">Nenhuma plataforma encontrada.</p>
-    } @else {
-      @for (plataform of plataformsExibitions(); track plataform.id) {
-        <button
-          [class]="
-            'p-2 px-4 rounded-lg cursor-pointer transition-all hover:scale-105 hover:bg-muted/70 hover:text-white ' +
-            (selectedPlataformIds().includes(plataform.id)
-              ? 'bg-primary/70 hover:bg-primary/80 text-white'
-              : 'bg-muted/40 text-muted')
-          "
-          type="button"
-          (click)="togglePlataform(plataform.id)"
-        >
-          {{ plataform.name }}
-        </button>
+  <div class="space-y-5">
+    <h2 class="font-medium text-center text-2xl text-tertiary/70">plataformas:</h2>
+    <div class="flex flex-wrap gap-2 w-full justify-center">
+      @if (loading()) {
+        <p class="text-muted">Carregando plataformas...</p>
+      } @else if (errorMessage()) {
+        <p class="text-red-500">{{ errorMessage() }}</p>
+      } @else if (plataforms().length === 0) {
+        <p class="text-muted">Nenhuma plataforma encontrada.</p>
+      } @else {
+        @for (plataform of plataformsExibitions(); track plataform.id) {
+          <button
+            [class]="
+              'p-2 px-4 rounded-lg cursor-pointer transition-all hover:scale-105 hover:bg-muted/70 hover:text-white ' +
+              (selectedPlataformIds().includes(plataform.id)
+                ? 'bg-primary/70 hover:bg-primary/80 text-white'
+                : 'bg-muted/40 text-muted')
+            "
+            type="button"
+            (click)="togglePlataform(plataform.id)"
+          >
+            {{ plataform.name }}
+          </button>
+        }
       }
-    }
-    <button
-      type="button"
-      [class]="'p-2 px-4 rounded-lg cursor-pointer transition-all hover:scale-105 hover:bg-muted/70 text-header ' + (expandPlataforms() ? 'bg-secundary' : 'bg-tertiary')"
-      (click)="tooglePlataformExpanded()"
-    >
-      {{ expandPlataforms() ? '< ver Menos' : 'Ver Mais >' }}
-    </button>
+      <button
+        type="button"
+        [class]="
+          'p-2 px-4 rounded-lg cursor-pointer transition-all hover:scale-105 hover:bg-muted/70 text-header ' +
+          (expandPlataforms() ? 'bg-secundary' : 'bg-tertiary')
+        "
+        (click)="tooglePlataformExpanded()"
+      >
+        {{ expandPlataforms() ? '< ver Menos' : 'Ver Mais >' }}
+      </button>
+    </div>
+
+    <h2 class="font-medium text-center text-2xl text-tertiary/70">lojas:</h2>
+    <div class="flex flex-wrap gap-2 w-full justify-center">
+      @if (loadingStores()) {
+        <p class="text-muted">Carregando lojas...</p>
+      } @else if (storesErrorMessage()) {
+        <p class="text-red-500">{{ storesErrorMessage() }}</p>
+      } @else if (stores().length === 0) {
+        <p class="text-muted">Nenhuma loja encontrada.</p>
+      } @else {
+        @for (store of stores(); track store.id) {
+          <button
+            [class]="
+              'p-2 px-4 rounded-lg cursor-pointer transition-all hover:scale-105 hover:bg-muted/70 hover:text-white ' +
+              (selectedStoreIds().includes(store.id)
+                ? 'bg-primary/70 hover:bg-primary/80 text-white'
+                : 'bg-muted/40 text-muted')
+            "
+            type="button"
+            (click)="toggleStore(store.id)"
+          >
+            {{ store.name }}
+          </button>
+        }
+      }
+    </div>
   </div>
 </form>

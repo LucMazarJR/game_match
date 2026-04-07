@@ -12,7 +12,9 @@
     } @else {
       <app-form
         [selectedPlataformIds]="formApiData().selectedPlataformIds"
+        [selectedStoreIds]="formApiData().selectedStoreIds"
         (selectedPlataformsChange)="onSelectedPlataformsChange($event)"
+        (selectedStoresChange)="onSelectedStoresChange($event)"
       >
       </app-form>
     }

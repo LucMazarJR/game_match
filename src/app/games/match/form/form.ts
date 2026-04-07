@@ -24,10 +24,14 @@ export class Form {
   private formsApi = inject(FormsApi);
 
   public loading = signal(true);
+  public loadingStores = signal(true);
   public errorMessage = signal<string | null>(null);
+  public storesErrorMessage = signal<string | null>(null);
 
   readonly selectedPlataformIds = input<number[]>([]);
   readonly selectedPlataformsChange = output<number[]>();
+  readonly selectedStoreIds = input<number[]>([]);
+  readonly selectedStoresChange = output<number[]>();
 
   protected readonly expandPlataforms = signal<boolean>(this.getInitialExpandState());
 
@@ -48,6 +52,19 @@ export class Form {
     const allPlataforms = this.plataforms();
     return this.expandPlataforms() ? allPlataforms : allPlataforms.slice(0, 12);
   });
+
+  public stores = toSignal(
+    this.formsApi.getGamesStores().pipe(
+      catchError(() => {
+        this.storesErrorMessage.set('Nao foi possivel carregar as lojas.');
+        return of([]);
+      }),
+      finalize(() => {
+        this.loadingStores.set(false);
+      }),
+    ),
+    { initialValue: [] },
+  );
 
   private readonly persistExpandState = effect(() => {
     this.setExpandState(this.expandPlataforms());
@@ -80,5 +97,14 @@ export class Form {
       : [...currentIds, plataformId];
 
     this.selectedPlataformsChange.emit(nextIds);
+  }
+
+  protected toggleStore(storeId: number) {
+    const currentIds = this.selectedStoreIds();
+    const nextIds = currentIds.includes(storeId)
+      ? currentIds.filter((id) => id !== storeId)
+      : [...currentIds, storeId];
+
+    this.selectedStoresChange.emit(nextIds);
   }
 }
