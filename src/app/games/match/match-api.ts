@@ -24,40 +24,48 @@ export class MatchApi {
   private http = inject(HttpClient);
 
   public getGamesByFilter(formResult: formApi) {
-    return this.http
-      .get<resultedGamesType>(
-        `${environment.apiUrl}/games?${environment.key}&page=1&page_size=20&platforms=${formResult.selectedPlataformIds.join(',')}&stores=${formResult.selectedStoreIds.join(',')}&genres=${formResult.selectedGenreIds.join(',')}`,
-      )
-      .pipe(
-        map((response) => ({
-          count: response.count,
-          next: response.next,
-          previous: response.previous,
-          results: response.results.map((game) => ({
-            id: game.id,
-            name: game.name,
-            background_image: game.background_image,
-          })),
+    const filterParams = [
+      formResult.selectedPlataformIds.length > 0
+        ? `platforms=${formResult.selectedPlataformIds.join(',')}`
+        : '',
+      formResult.selectedStoreIds.length > 0
+        ? `stores=${formResult.selectedStoreIds.join(',')}`
+        : '',
+      formResult.selectedGenreIds.length > 0
+        ? `genres=${formResult.selectedGenreIds.join(',')}`
+        : '',
+    ]
+      .filter(Boolean)
+      .join('&');
+
+    const url = `${environment.apiUrl}/games?${environment.key}&page=1&page_size=20${filterParams ? `&${filterParams}` : ''}`;
+
+    return this.http.get<resultedGamesType>(url).pipe(
+      map((response) => ({
+        count: response.count,
+        next: response.next,
+        previous: response.previous,
+        results: response.results.map((game) => ({
+          id: game.id,
+          name: game.name,
+          background_image: game.background_image,
         })),
-      );
+      })),
+    );
   }
 
-    public getGamesByPage(pageLink: string) {
-    return this.http
-      .get<resultedGamesType>(
-        `${pageLink}`,
-      )
-      .pipe(
-        map((response) => ({
-          count: response.count,
-          next: response.next,
-          previous: response.previous,
-          results: response.results.map((game) => ({
-            id: game.id,
-            name: game.name,
-            background_image: game.background_image,
-          })),
+  public getGamesByPage(pageLink: string) {
+    return this.http.get<resultedGamesType>(`${pageLink}`).pipe(
+      map((response) => ({
+        count: response.count,
+        next: response.next,
+        previous: response.previous,
+        results: response.results.map((game) => ({
+          id: game.id,
+          name: game.name,
+          background_image: game.background_image,
         })),
-      );
+      })),
+    );
   }
 }
