@@ -7,8 +7,8 @@
     <div class="w-[70%] flex flex-col gap-8">
       @if (formPage() == 0) {
         <app-genre
-          [selectedGenreIds]="formApiData().selectedGenreIds"
-          (selectedGenresChange)="onSelectedGenresChange($event)"
+          [selectedGenreId]="formApiData().selectedGenreId"
+          (selectedGenreChange)="onSelectedGenreChange($event)"
         ></app-genre>
       } @else {
         <app-form
@@ -62,21 +62,36 @@
                 [alt]="`${game.name}img`"
                 class="object-cover rounded-md h-40 w-80"
               />
-              <h3 class="font-medium text-lg mt-2 text-center  w-80">{{ game.name }}</h3>
+              <h3 class="font-medium text-lg mt-2 text-center w-80">{{ game.name }}</h3>
             </div>
           }
         </div>
         <div class="flex justify-between">
           @if (games()?.previous) {
-            <button (click)="changeGamesPage(games()!.previous!)" class="bg-tertiary text-header py-2 px-4 rounded-lg hover:bg-tertiary/80 transition-all cursor-pointer">< Pagina Anterior</button>
+            <button
+              (click)="changeGamesPage(games()!.previous!)"
+              class="bg-tertiary text-header py-2 px-4 rounded-lg hover:bg-tertiary/80 transition-all cursor-pointer"
+            >
+              < Pagina Anterior
+            </button>
           } @else {
             <div></div>
           }
 
-          <button class="text-muted underline cursor-pointer transition-colors hover:text-muted/80" (click)="formPage.set(0)">Voltar</button>
+          <button
+            class="text-muted underline cursor-pointer transition-colors hover:text-muted/80"
+            (click)="formPage.set(0)"
+          >
+            Voltar
+          </button>
 
           @if (games()?.next) {
-            <button (click)="changeGamesPage(games()!.next!)" class="bg-primary text-header py-2 px-4 rounded-lg hover:bg-primary/80 transition-all cursor-pointer">Proxima pagina ></button>
+            <button
+              (click)="changeGamesPage(games()!.next!)"
+              class="bg-primary text-header py-2 px-4 rounded-lg hover:bg-primary/80 transition-all cursor-pointer"
+            >
+              Proxima pagina >
+            </button>
           } @else {
             <div></div>
           }

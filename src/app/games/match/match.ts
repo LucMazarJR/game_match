@@ -5,7 +5,7 @@ import { MatchApi, resultedGamesType } from './match-api';
 import { finalize } from 'rxjs';
 
 export type formApi = {
-  selectedGenreIds: number[];
+  selectedGenreId: number;
   selectedPlataformIds: number[];
   selectedStoreIds: number[];
 };
@@ -20,19 +20,12 @@ export class Match {
 
   public loading = signal(false);
   protected readonly formApiData = signal<formApi>({
-    selectedGenreIds: [],
+    selectedGenreId: 0,
     selectedPlataformIds: [],
     selectedStoreIds: [],
   });
   protected readonly formPage = signal<number>(0);
   protected readonly games = signal<resultedGamesType | null>(null);
-
-  protected onSelectedGenresChange(ids: number[]) {
-    this.formApiData.update((current) => ({
-      ...current,
-      selectedGenreIds: ids,
-    }));
-  }
 
   protected onSelectedPlataformsChange(ids: number[]) {
     this.formApiData.update((current) => ({
@@ -45,6 +38,13 @@ export class Match {
     this.formApiData.update((current) => ({
       ...current,
       selectedStoreIds: ids,
+    }));
+  }
+
+  protected onSelectedGenreChange(id: number) {
+    this.formApiData.update((current) => ({
+      ...current,
+      selectedGenreId: id,
     }));
   }
 

@@ -34,8 +34,8 @@ import { GamesGenres } from './game-genres-mock';
 export class Genre {
   private readonly gamesGenresService = inject(GamesGenres);
   readonly genres = this.gamesGenresService.getGamesGenres();
-  readonly selectedGenreIds = input<number[]>([]);
-  readonly selectedGenresChange = output<number[]>();
+  readonly selectedGenreId = input<number>(0);
+  readonly selectedGenreChange = output<number>();
 
   private readonly iconMap: Record<string, LucideIconInput> = {
     lucideSwords: LucideSwords,
@@ -64,11 +64,7 @@ export class Genre {
   }
 
   protected toggleGenre(genreId: number) {
-    const currentIds = this.selectedGenreIds();
-    const nextIds = currentIds.includes(genreId)
-      ? currentIds.filter((id) => id !== genreId)
-      : [...currentIds, genreId];
-
-    this.selectedGenresChange.emit(nextIds);
+    const nextId = this.selectedGenreId() === genreId ? 0 : genreId;
+    this.selectedGenreChange.emit(nextId);
   }
 }

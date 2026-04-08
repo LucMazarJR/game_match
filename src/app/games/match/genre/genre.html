@@ -3,7 +3,7 @@
     <button
       [class]="
         ' h-66 rounded-lg flex flex-col justify-around items-center cursor-pointer transition-all ease-in-out hover:scale-105 ' +
-        (selectedGenreIds().includes(genre.genreId)
+        (selectedGenreId() === genre.genreId
           ? 'bg-primary/60 hover:bg-primary/80'
           : 'bg-muted/20 hover:bg-muted/30')
       "
@@ -15,7 +15,7 @@
         [lucideIcon]="getIcon(genre.lucideIcon)"
         size="48"
         aria-hidden="true"
-        [class]="selectedGenreIds().includes(genre.genreId) ? ' text-white' : 'text-muted/80'"
+        [class]="selectedGenreId() === genre.genreId ? ' text-white' : 'text-muted/80'"
       ></svg>
     </button>
   }

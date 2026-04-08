@@ -31,8 +31,8 @@ export class MatchApi {
       formResult.selectedStoreIds.length > 0
         ? `stores=${formResult.selectedStoreIds.join(',')}`
         : '',
-      formResult.selectedGenreIds.length > 0
-        ? `genres=${formResult.selectedGenreIds.join(',')}`
+      formResult.selectedGenreId != 0
+        ? `genres=${formResult.selectedGenreId}`
         : '',
     ]
       .filter(Boolean)
