@@ -1,6 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Genre } from './genre/genre';
 import { Form } from './form/form';
+import { MatchApi, resultedGamesType } from './match-api';
+import { finalize } from 'rxjs';
 
 export type formApi = {
   selectedGenreIds: number[];
@@ -14,12 +16,16 @@ export type formApi = {
   templateUrl: './match.html',
 })
 export class Match {
+  private matchApi = inject(MatchApi);
+
+  public loading = signal(false);
   protected readonly formApiData = signal<formApi>({
     selectedGenreIds: [],
     selectedPlataformIds: [],
     selectedStoreIds: [],
   });
-  protected readonly formPage = signal<number>(1); //Valor padrão = 0, 1 para dev
+  protected readonly formPage = signal<number>(0);
+  protected readonly games = signal<resultedGamesType | null>(null);
 
   protected onSelectedGenresChange(ids: number[]) {
     this.formApiData.update((current) => ({
@@ -40,5 +46,23 @@ export class Match {
       ...current,
       selectedStoreIds: ids,
     }));
+  }
+
+  protected changePage() {
+    this.formPage.update((prev) => (prev <= 1 ? prev + 1 : prev));
+    if (this.formPage() === 2) {
+      this.handleGameApiData();
+    }
+  }
+
+  private handleGameApiData() {
+    this.loading.set(true);
+    this.matchApi
+      .getGamesByFilter(this.formApiData())
+      .pipe(finalize(() => this.loading.set(false)))
+      .subscribe({
+        next: (data) => this.games.set(data),
+        error: () => this.games.set(null),
+      });
   }
 }
