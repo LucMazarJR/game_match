@@ -25,7 +25,7 @@ export class GamesGenres {
       { genreId: 7, name: 'Puzzle', lucideIcon: 'lucidePuzzle' },
       { genreId: 11, name: 'Arcade', lucideIcon: 'lucideBoxes' },
       { genreId: 83, name: 'Plataforma', lucideIcon: 'lucideGamepad2' },
-      { genreId: 59, name: 'MMO', lucideIcon: 'lucideGlobe' },
+      { genreId: 59, name: 'Multiplayer', lucideIcon: 'lucideGlobe' },
       { genreId: 1, name: 'Corrida', lucideIcon: 'lucideTrophy' },
       { genreId: 15, name: 'Esportes', lucideIcon: 'lucideVolleyball' },
       { genreId: 6, name: 'Luta', lucideIcon: 'lucideHandFist' },
