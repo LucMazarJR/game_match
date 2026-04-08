@@ -41,4 +41,23 @@ export class MatchApi {
         })),
       );
   }
+
+    public getGamesByPage(pageLink: string) {
+    return this.http
+      .get<resultedGamesType>(
+        `${pageLink}`,
+      )
+      .pipe(
+        map((response) => ({
+          count: response.count,
+          next: response.next,
+          previous: response.previous,
+          results: response.results.map((game) => ({
+            id: game.id,
+            name: game.name,
+            background_image: game.background_image,
+          })),
+        })),
+      );
+  }
 }

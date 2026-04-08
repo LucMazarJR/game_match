@@ -65,4 +65,15 @@ export class Match {
         error: () => this.games.set(null),
       });
   }
+
+  protected changeGamesPage(pageUrl: string) {
+    this.loading.set(true);
+    this.matchApi
+      .getGamesByPage(pageUrl)
+      .pipe(finalize(() => this.loading.set(false)))
+      .subscribe({
+        next: (data) => this.games.set(data),
+        error: () => this.games.set(null),
+      });
+  }
 }
