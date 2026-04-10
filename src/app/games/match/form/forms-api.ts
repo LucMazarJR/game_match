@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { environment } from '../../../../environments/environment.development';
+import { environment } from '../../../../environments/environment';
 import { map, Observable, shareReplay } from 'rxjs';
 
 export type PlataformsResponse = {
@@ -22,7 +22,7 @@ export class FormsApi {
   public getGamesPlataforms(): Observable<{ id: number; name: string }[]> {
     if (!this.platformsCache$) {
       this.platformsCache$ = this.http
-        .get<PlataformsResponse>(`${environment.apiUrl}/platforms?key=${environment.key}`)
+        .get<PlataformsResponse>(`${environment.apiUrl}/platforms`)
         .pipe(
           map((result) => result.results.map(({ id, name }) => ({ id, name }))),
           shareReplay({ bufferSize: 1, refCount: true }),
@@ -39,7 +39,7 @@ export class FormsApi {
   public getGamesStores(): Observable<{ id: number; name: string }[]> {
     if (!this.storesCache$) {
       this.storesCache$ = this.http
-        .get<StoresResponse>(`${environment.apiUrl}/stores?key=${environment.key}`)
+        .get<StoresResponse>(`${environment.apiUrl}/stores`)
         .pipe(
           map((result) => result.results.map(({ id, name }) => ({ id, name }))),
           shareReplay({ bufferSize: 1, refCount: true }),

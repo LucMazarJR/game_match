@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '../../../environments/environment';
 import { map, Observable } from 'rxjs';
 
 type gameDataResponse = {
@@ -34,7 +34,7 @@ export class GameExibitApi {
   private http = inject(HttpClient);
 
   public getGameById(id: number): Observable<gameDataType> {
-    const url = `${environment.apiUrl}/games/${id}?key=${environment.key}`;
+    const url = `${environment.apiUrl}/games/${id}`;
     return this.http.get<gameDataResponse>(url).pipe(
       map((res) => ({
         name: res.name,

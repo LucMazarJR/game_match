@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '../../../environments/environment';
 import { formApi } from './match';
 import { map } from 'rxjs';
 
@@ -24,20 +24,19 @@ export class MatchApi {
   private http = inject(HttpClient);
 
   public getGamesByFilter(formResult: formApi, page: number = 1) {
-    const filterParams = [
+    const safePage = Number.isInteger(page) && page > 0 ? page : 1;
+    const queryParams = [
+      `page=${safePage}`,
+      'page_size=20',
       formResult.selectedPlataformIds.length > 0
         ? `platforms=${formResult.selectedPlataformIds.join(',')}`
         : '',
-      formResult.selectedStoreIds.length > 0
-        ? `stores=${formResult.selectedStoreIds.join(',')}`
-        : '',
+      formResult.selectedStoreIds.length > 0 ? `stores=${formResult.selectedStoreIds.join(',')}` : '',
       formResult.selectedGenreId != 0 ? `genres=${formResult.selectedGenreId}` : '',
     ]
       .filter(Boolean)
       .join('&');
-
-    const safePage = Number.isInteger(page) && page > 0 ? page : 1;
-    const url = `${environment.apiUrl}/games?key=${environment.key}&page=${safePage}&page_size=20${filterParams ? `&${filterParams}` : ''}`;
+    const url = `${environment.apiUrl}/games?${queryParams}`;
 
     return this.http.get<resultedGamesType>(url).pipe(
       map((response) => ({
