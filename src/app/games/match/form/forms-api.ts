@@ -38,12 +38,10 @@ export class FormsApi {
 
   public getGamesStores(): Observable<{ id: number; name: string }[]> {
     if (!this.storesCache$) {
-      this.storesCache$ = this.http
-        .get<StoresResponse>(`${environment.apiUrl}/stores`)
-        .pipe(
-          map((result) => result.results.map(({ id, name }) => ({ id, name }))),
-          shareReplay({ bufferSize: 1, refCount: true }),
-        );
+      this.storesCache$ = this.http.get<StoresResponse>(`${environment.apiUrl}/stores`).pipe(
+        map((result) => result.results.map(({ id, name }) => ({ id, name }))),
+        shareReplay({ bufferSize: 1, refCount: true }),
+      );
     }
 
     return this.storesCache$;

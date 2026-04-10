@@ -22,7 +22,9 @@ export default async function handler(req, res) {
   const params = new URLSearchParams({ key: apiKey });
 
   try {
-    const response = await fetch(`${RAWG_BASE_URL}/games/${encodeURIComponent(id)}?${params.toString()}`);
+    const response = await fetch(
+      `${RAWG_BASE_URL}/games/${encodeURIComponent(id)}?${params.toString()}`,
+    );
     const text = await response.text();
 
     if (!response.ok) {

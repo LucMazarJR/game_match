@@ -31,7 +31,9 @@ export class MatchApi {
       formResult.selectedPlataformIds.length > 0
         ? `platforms=${formResult.selectedPlataformIds.join(',')}`
         : '',
-      formResult.selectedStoreIds.length > 0 ? `stores=${formResult.selectedStoreIds.join(',')}` : '',
+      formResult.selectedStoreIds.length > 0
+        ? `stores=${formResult.selectedStoreIds.join(',')}`
+        : '',
       formResult.selectedGenreId != 0 ? `genres=${formResult.selectedGenreId}` : '',
     ]
       .filter(Boolean)
