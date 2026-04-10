@@ -14,7 +14,10 @@
           "
           [style.filter]="'grayscale(80%)'"
         ></div>
-        <div class="absolute inset-0 w-full h-full bg-background/90 flex flex-col items-center">
+        <div
+          class="absolute inset-0 w-full h-full bg-linear-to-t from-background via-background/88 to-background/45"
+        ></div>
+        <div class="absolute inset-0 w-full h-full flex flex-col items-center">
           <div class="flex flex-col items-center w-[70%] p-2 gap-2">
             <div class="flex justify-between w-full">
               <button
@@ -73,7 +76,12 @@
               @if (gameData()?.website) {
                 <div class="flex justify-between">
                   <div></div>
-                  <a class="py-2 bg-tertiary text-header font-medium rounded-lg px-4 text-lg hover:scale-110 transition-all hover:bg-tertiary/80 cursor-pointer" [href]="`${gameData()?.website}`" target="_blank">Visitar Site</a>
+                  <a
+                    class="py-2 bg-tertiary text-header font-medium rounded-lg px-4 text-lg hover:scale-110 transition-all hover:bg-tertiary/80 cursor-pointer"
+                    [href]="`${gameData()?.website}`"
+                    target="_blank"
+                    >Visitar Site</a
+                  >
                 </div>
               }
             </div>
