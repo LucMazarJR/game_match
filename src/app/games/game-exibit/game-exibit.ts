@@ -2,7 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { gameDataType, GameExibitApi } from './game-exibit-api';
 import { finalize } from 'rxjs';
-import { LucideAArrowDown, LucideLoaderCircle } from '@lucide/angular';
+import { LucideLoaderCircle } from '@lucide/angular';
 
 @Component({
   selector: 'app-game-exibit',
