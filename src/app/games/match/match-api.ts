@@ -23,7 +23,7 @@ type gameType = {
 export class MatchApi {
   private http = inject(HttpClient);
 
-  public getGamesByFilter(formResult: formApi) {
+  public getGamesByFilter(formResult: formApi, page: number = 1) {
     const filterParams = [
       formResult.selectedPlataformIds.length > 0
         ? `platforms=${formResult.selectedPlataformIds.join(',')}`
@@ -36,24 +36,10 @@ export class MatchApi {
       .filter(Boolean)
       .join('&');
 
-    const url = `${environment.apiUrl}/games?key=${environment.key}&page=1&page_size=20${filterParams ? `&${filterParams}` : ''}`;
+    const safePage = Number.isInteger(page) && page > 0 ? page : 1;
+    const url = `${environment.apiUrl}/games?key=${environment.key}&page=${safePage}&page_size=20${filterParams ? `&${filterParams}` : ''}`;
 
     return this.http.get<resultedGamesType>(url).pipe(
-      map((response) => ({
-        count: response.count,
-        next: response.next,
-        previous: response.previous,
-        results: response.results.map((game) => ({
-          id: game.id,
-          name: game.name,
-          background_image: game.background_image,
-        })),
-      })),
-    );
-  }
-
-  public getGamesByPage(pageLink: string) {
-    return this.http.get<resultedGamesType>(`${pageLink}`).pipe(
       map((response) => ({
         count: response.count,
         next: response.next,
