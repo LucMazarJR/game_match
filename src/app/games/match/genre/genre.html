@@ -1,8 +1,8 @@
-<section class="genre-scroll w-full grid grid-cols-4 scroll-smooth gap-4 h-140 overflow-auto p-2">
+<section class="genre-scroll w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 scroll-smooth gap-4 h-140 overflow-auto p-2">
   @for (genre of genres; track genre.genreId) {
     <button
       [class]="
-        ' h-66 rounded-lg flex flex-col justify-around items-center cursor-pointer transition-all ease-in-out hover:scale-105 ' +
+        'h-37 md:h-40 lg:h-66 rounded-lg flex flex-col justify-around items-center cursor-pointer transition-all ease-in-out hover:scale-105 ' +
         (selectedGenreId() === genre.genreId
           ? 'bg-primary/60 hover:bg-primary/80'
           : 'bg-muted/20 hover:bg-muted/30')

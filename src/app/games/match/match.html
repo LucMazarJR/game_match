@@ -4,7 +4,7 @@
       <p class="text-primary/40">Selecione as opções para encontrar seu jogo ideal</p>
       <h1 class="font-bold text-5xl">O que você busca hoje?</h1>
     </div>
-    <div class="w-[70%] flex flex-col gap-8">
+    <div class="w-[90%] md:w-[70%] flex flex-col gap-8">
       @if (formPage() == 0) {
         <app-genre
           [selectedGenreId]="formApiData().selectedGenreId"
