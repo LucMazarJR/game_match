@@ -22,7 +22,7 @@ export class FormsApi {
   public getGamesPlataforms(): Observable<{ id: number; name: string }[]> {
     if (!this.platformsCache$) {
       this.platformsCache$ = this.http
-        .get<PlataformsResponse>(`${environment.apiUrl}/platforms?${environment.key}`)
+        .get<PlataformsResponse>(`${environment.apiUrl}/platforms?key=${environment.key}`)
         .pipe(
           map((result) => result.results.map(({ id, name }) => ({ id, name }))),
           shareReplay({ bufferSize: 1, refCount: true }),
@@ -39,7 +39,7 @@ export class FormsApi {
   public getGamesStores(): Observable<{ id: number; name: string }[]> {
     if (!this.storesCache$) {
       this.storesCache$ = this.http
-        .get<StoresResponse>(`${environment.apiUrl}/stores?${environment.key}`)
+        .get<StoresResponse>(`${environment.apiUrl}/stores?key=${environment.key}`)
         .pipe(
           map((result) => result.results.map(({ id, name }) => ({ id, name }))),
           shareReplay({ bufferSize: 1, refCount: true }),

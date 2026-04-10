@@ -31,14 +31,12 @@ export class MatchApi {
       formResult.selectedStoreIds.length > 0
         ? `stores=${formResult.selectedStoreIds.join(',')}`
         : '',
-      formResult.selectedGenreId != 0
-        ? `genres=${formResult.selectedGenreId}`
-        : '',
+      formResult.selectedGenreId != 0 ? `genres=${formResult.selectedGenreId}` : '',
     ]
       .filter(Boolean)
       .join('&');
 
-    const url = `${environment.apiUrl}/games?${environment.key}&page=1&page_size=20${filterParams ? `&${filterParams}` : ''}`;
+    const url = `${environment.apiUrl}/games?key=${environment.key}&page=1&page_size=20${filterParams ? `&${filterParams}` : ''}`;
 
     return this.http.get<resultedGamesType>(url).pipe(
       map((response) => ({
