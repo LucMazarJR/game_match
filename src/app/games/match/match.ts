@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { Genre } from './genre/genre';
 import { Form } from './form/form';
 import { MatchApi, resultedGamesType } from './match-api';
+import {RouterLink} from '@angular/router';
 import { finalize } from 'rxjs';
 
 export type formApi = {
@@ -12,7 +13,7 @@ export type formApi = {
 
 @Component({
   selector: 'app-match',
-  imports: [Genre, Form],
+  imports: [Genre, Form, RouterLink],
   templateUrl: './match.html',
 })
 export class Match {
