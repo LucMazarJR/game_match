@@ -108,6 +108,6 @@ Projeto finalizado.
 ## Autor
 
 - Luciano Mazarao Jr
-- Portfolio: https://game-match-ruddy.vercel.app/
+- Portfolio: https://www.lucianomjr.dev/
 - LinkedIn: http://www.linkedin.com/in/lucianomazaraojr
 - Projeto academico desenvolvido para a disciplina de Web 1.
