@@ -1,27 +1,113 @@
 # Game Match
 
-Projeto acadêmico em desenvolvimento, criado para exercitar Angular em um cenário mais próximo de uma aplicação real, indo além dos exemplos básicos.
+Aplicacao web para descoberta de jogos, com foco em pratica de Angular em um projeto academico mais proximo de um caso real.
 
-## Objetivo
+## Deploy
 
-O objetivo principal deste projeto é fortalecer a prática com Angular por meio de um projeto um pouco mais complexo, com foco em arquitetura, fluxo de dados e evolução incremental.
+Acesse a aplicacao publicada em:
 
-Durante o desenvolvimento, a ideia é consolidar principalmente:
+https://game-match-ruddy.vercel.app/
 
-- organização por componentes e features;
-- roteamento entre telas;
-- estruturação de uma aplicação com múltiplas funcionalidades integradas;
-- manipulação de formulários (captura, validação e tratamento de dados);
-- consumo de APIs com requisições HTTP.
+## Sobre o projeto
 
-Apesar de formulários e HTTP ainda não estarem totalmente implementados, esse é o foco técnico central das próximas etapas.
+O Game Match foi pensado para ajudar pessoas a encontrar jogos de forma mais pratica, explorando titulos por criterios como genero e outras preferencias.
 
-## Proposta
+Tambem e um projeto de estudo para consolidar conceitos importantes de frontend moderno com Angular.
 
-O Game Match se propõe a ajudar pessoas a encontrar jogos para jogar de forma mais prática, reunindo opções relevantes e facilitando a descoberta de novos títulos com base em preferências e filtros.
+## Objetivos de aprendizagem
+
+- Estruturacao por features e componentes.
+- Navegacao entre telas com roteamento.
+- Consumo de APIs para listar e detalhar jogos.
+- Captura e validacao de dados com formularios.
+- Evolucao incremental de layout, UX e organizacao de codigo.
+
+## Tecnologias
+
+- Angular 21
+- TypeScript
+- Tailwind CSS
+- RxJS
+- Vercel (deploy)
+
+## Como rodar localmente
+
+### Pre-requisitos
+
+- Node.js instalado (recomendado: versao LTS)
+- npm
+
+### Passos
+
+1. Instale as dependencias:
+
+```bash
+npm install
+```
+
+2. Inicie o servidor de desenvolvimento:
+
+```bash
+npm start
+```
+
+3. Abra no navegador:
+
+http://localhost:4200/
+
+## Scripts disponiveis
+
+- `npm start`: executa o projeto em modo desenvolvimento.
+- `npm run build`: gera build de producao.
+- `npm run watch`: build em modo observacao.
+- `npm test`: executa os testes.
+- `npm run format`: formata o codigo com Prettier.
+
+## Estrutura base
+
+```text
+src/
+	app/
+		games/
+			game-exibit/
+			match/
+				form/
+				genre/
+```
+
+## Arquitetura da aplicacao
+
+Desenho da arquitetura: em elaboracao.
+
+## Fluxo da aplicacao (prints)
+
+1. Home (entrada)
+
+![Home](docs/imgs/telas/home.png)
+
+2. Filtro por preferencias
+
+![Filtro](docs/imgs/telas/filter.png)
+
+3. Resultado da busca (match de jogos)
+
+![Resultado do match](docs/imgs/telas/match.png)
+
+4. Detalhe de jogo - exemplo 1
+
+![Detalhe do jogo - Life is Strange](docs/imgs/telas/game1.png)
+
+5. Detalhe de jogo - exemplo 2
+
+![Detalhe do jogo - Persona 5 Royal](docs/imgs/telas/game2.png)
 
 ## Status
 
-Projeto em desenvolvimento.
+Projeto finalizado.
 
-Nesta fase, a base da aplicação está sendo estruturada, e os próximos passos incluem a evolução dos fluxos com formulários e integrações via HTTP, além de melhorias visuais e funcionais contínuas.
+## Autor
+
+- Luciano Mazarao Jr
+- Portfolio: https://game-match-ruddy.vercel.app/
+- LinkedIn: http://www.linkedin.com/in/lucianomazaraojr
+- Projeto academico desenvolvido para a disciplina de Web 1.
