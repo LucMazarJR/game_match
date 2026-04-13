@@ -77,7 +77,15 @@ src/
 
 ## Arquitetura da aplicacao
 
-Desenho da arquitetura: em elaboracao.
+![Arquitetura da aplicacao](docs/imgs/arquitetura.png)
+
+Visao geral da arquitetura e do fluxo:
+
+- A aplicacao usa Angular (standalone) na camada de interface, com rotas para Home, Match e detalhe do jogo.
+- Os componentes de tela chamam servicos Angular para buscar dados (filtros, lista de jogos e detalhe).
+- Esses servicos consomem endpoints internos em `/api/rawg` (BFF serverless), sem expor chave da API no frontend.
+- O BFF valida a requisicao, repassa para a RAWG API e devolve JSON com cache HTTP.
+- No fluxo de navegacao, o usuario passa por selecao de genero e filtros, visualiza resultados paginados e abre o detalhe de um jogo.
 
 ## Fluxo da aplicacao (prints)
 
